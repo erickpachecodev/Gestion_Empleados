@@ -35,11 +35,9 @@ public class EmpleadoPorHora extends Empleado {
 
     @Override
     public String toString() {
-        return "EmpleadoPorHora{" +
-                super.toString() +
+        return "EmpleadoPorHora{" + super.toString() +
                 ", horasTrabajadas=" + horasTrabajadas +
                 ", tarifaPorHora=" + tarifaPorHora +
-                ", salarioCalculado=" + calcularSalario() +
-                '}';
+                ", salarioCalculado=" + calcularSalario() + '}';
     }
 }

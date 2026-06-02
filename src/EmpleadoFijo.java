@@ -1,9 +1,10 @@
 public class EmpleadoFijo extends Empleado {
 
-    private double salarioMensual;
+    private double salarioMensual;   // antes SalarioMensual
 
     public EmpleadoFijo(String nombre, String apellidos, String dui,
-                        Double salario, double salarioMensual) {
+                        Double salario,
+                        double salarioMensual) {
 
         super(nombre, apellidos, dui, salario);
         this.salarioMensual = salarioMensual;
@@ -24,10 +25,8 @@ public class EmpleadoFijo extends Empleado {
 
     @Override
     public String toString() {
-        return "EmpleadoFijo{" +
-                super.toString() +
+        return "EmpleadoFijo{" + super.toString() +
                 ", salarioMensual=" + salarioMensual +
-                ", salarioCalculado=" + calcularSalario() +
-                '}';
+                ", salarioCalculado=" + calcularSalario() + '}';
     }
 }
