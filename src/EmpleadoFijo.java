@@ -1,30 +1,32 @@
 public class EmpleadoFijo extends Empleado {
-    private double SalarioMensual;
 
-    public EmpleadoFijo(String nombre, String apellidos, String dui, Double salario, double salarioMensual) {
+    private double salarioMensual;
+
+    public EmpleadoFijo(String nombre, String apellidos, String dui,
+                        Double salario, double salarioMensual) {
+
         super(nombre, apellidos, dui, salario);
-        this.SalarioMensual = salarioMensual;
+        this.salarioMensual = salarioMensual;
     }
 
     public double getSalarioMensual() {
-        return SalarioMensual;
+        return salarioMensual;
     }
 
     public void setSalarioMensual(double salarioMensual) {
-        this.SalarioMensual = salarioMensual;
+        this.salarioMensual = salarioMensual;
     }
 
     @Override
     public Double calcularSalario() {
-        // Para un empleado fijo, su salario es el salario mensual
-        return SalarioMensual;
+        return salarioMensual;
     }
 
     @Override
     public String toString() {
         return "EmpleadoFijo{" +
                 super.toString() +
-                ", salarioMensual=" + SalarioMensual +
+                ", salarioMensual=" + salarioMensual +
                 ", salarioCalculado=" + calcularSalario() +
                 '}';
     }

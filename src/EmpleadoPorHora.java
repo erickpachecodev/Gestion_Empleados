@@ -1,46 +1,45 @@
-public class EmpleadoPorHora extends Empleado{
+public class EmpleadoPorHora extends Empleado {
 
-    private int HorasTrabajadas;
-    private double TarifaPorHora;
+    private int horasTrabajadas;
+    private double tarifaPorHora;
 
     public EmpleadoPorHora(String nombre, String apellidos, String dui, Double salario,
-                           int HorasTabajadas,
-                           double TarifaPorHora){
+                           int horasTrabajadas,
+                           double tarifaPorHora) {
+
         super(nombre, apellidos, dui, salario);
-        this.HorasTrabajadas = HorasTabajadas;
-        this.TarifaPorHora = TarifaPorHora;
+        this.horasTrabajadas = horasTrabajadas;
+        this.tarifaPorHora = tarifaPorHora;
     }
 
-    public int getHorasTrabajadas(){
-        return HorasTrabajadas;
+    public int getHorasTrabajadas() {
+        return horasTrabajadas;
     }
 
     public void setHorasTrabajadas(int horasTrabajadas) {
-        this.HorasTrabajadas = horasTrabajadas;
+        this.horasTrabajadas = horasTrabajadas;
     }
 
-    public double getTarifaPorHora(){
-        return TarifaPorHora;
+    public double getTarifaPorHora() {
+        return tarifaPorHora;
     }
 
     public void setTarifaPorHora(double tarifaPorHora) {
-        TarifaPorHora = tarifaPorHora;
+        this.tarifaPorHora = tarifaPorHora;
     }
 
     @Override
     public Double calcularSalario() {
-        return HorasTrabajadas * TarifaPorHora;
+        return horasTrabajadas * tarifaPorHora;
     }
-
 
     @Override
     public String toString() {
-        return "EmpleadoPorHoras{" +
+        return "EmpleadoPorHora{" +
                 super.toString() +
                 ", horasTrabajadas=" + horasTrabajadas +
                 ", tarifaPorHora=" + tarifaPorHora +
                 ", salarioCalculado=" + calcularSalario() +
                 '}';
     }
-
 }
