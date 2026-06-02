@@ -1,6 +1,6 @@
 public class EmpleadoFijo extends Empleado {
 
-    private double salarioMensual;   // antes SalarioMensual
+    private double salarioMensual;
 
     public EmpleadoFijo(String nombre, String apellidos, String dui,
                         Double salario,
