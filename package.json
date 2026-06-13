@@ -1,0 +1,11 @@
+{
+  "name": "sistema-nomina",
+  "private": true,
+  "scripts": {
+    "sass:build": "sass src/main/sass:target/classes/static/css --no-source-map",
+    "sass:watch": "sass src/main/sass:target/classes/static/css --watch --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.83.0"
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title th:text="${titulo}">Detalle salarial</title>
+	<link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+	<div th:replace="~{fragments/nav :: nav}"></div>
+
+	<main class="container">
+		<header class="page-header">
+			<h1 class="page-title" th:text="${titulo}">Detalle salarial</h1>
+		</header>
+
+		<div class="table-wrapper">
+			<table>
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Empleado</th>
+						<th>Rol</th>
+						<th class="text-right">Sueldo base</th>
+						<th class="text-right">ISSS</th>
+						<th class="text-right">AFP</th>
+						<th class="text-right">Renta</th>
+						<th class="text-right">Total desc.</th>
+						<th class="text-right">Salario neto</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="detalle, stat : ${detalles}">
+						<td th:text="${stat.count}">1</td>
+						<td th:text="${detalle.nombreCompleto}">Empleado</td>
+						<td><span class="badge" th:text="${detalle.rol}">Rol</span></td>
+						<td class="text-right" th:text="${detalle.sueldoBase}">$0.00</td>
+						<td class="text-right" th:text="${detalle.isss}">$0.00</td>
+						<td class="text-right" th:text="${detalle.afp}">$0.00</td>
+						<td class="text-right" th:text="${detalle.renta}">$0.00</td>
+						<td class="text-right" th:text="${detalle.totalDescuentos}">$0.00</td>
+						<td class="text-right" th:text="${detalle.salarioNeto}">$0.00</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</main>
+</body>
+</html>

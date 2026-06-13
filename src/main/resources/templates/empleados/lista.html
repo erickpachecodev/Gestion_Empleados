@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title th:text="${titulo}">Empleados</title>
+	<link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+	<div th:replace="~{fragments/nav :: nav}"></div>
+
+	<main class="container">
+		<header class="page-header">
+			<h1 class="page-title" th:text="${titulo}">Empleados</h1>
+		</header>
+
+		<div class="table-wrapper">
+			<table>
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Nombre completo</th>
+						<th>DUI</th>
+						<th>Sexo</th>
+						<th>Rol</th>
+						<th class="text-right">Sueldo base</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="empleado, stat : ${empleados}">
+						<td th:text="${stat.count}">1</td>
+						<td th:text="${empleado.nombreCompleto}">Nombre</td>
+						<td th:text="${empleado.dui}">DUI</td>
+						<td th:text="${empleado.sexo}">Sexo</td>
+						<td><span class="badge" th:text="${empleado.rol}">Rol</span></td>
+						<td class="text-right" th:text="${empleado.sueldoBase}">$0.00</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</main>
+</body>
+</html>

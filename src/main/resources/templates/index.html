@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sistema de Nómina</title>
+	<link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+	<div th:replace="~{fragments/nav :: nav}"></div>
+
+	<main class="container">
+		<header class="page-header">
+			<h1 class="page-title">Sistema de Nómina</h1>
+			<p class="page-description">Proyecto académico de Ingeniería en Desarrollo de Software.</p>
+		</header>
+
+		<section class="card-grid">
+			<article class="card card-highlight">
+				<h2>Total de empleados</h2>
+				<p class="card-value" th:text="${totalEmpleados}">0</p>
+			</article>
+			<article class="card" th:each="conteo : ${conteoRoles}">
+				<h2 th:text="${conteo.rol}">Rol</h2>
+				<p class="card-value" th:text="${conteo.cantidad}">0</p>
+			</article>
+		</section>
+
+		<section class="actions">
+			<h2>Accesos rápidos</h2>
+			<div class="actions-grid">
+				<a class="action-link" th:href="@{/empleados}">Ver empleados</a>
+				<a class="action-link" th:href="@{/empleados/apellidos}">Ordenar por apellido</a>
+				<a class="action-link" th:href="@{/empleados/salarios/asc}">Salarios ascendente</a>
+				<a class="action-link" th:href="@{/empleados/salarios/desc}">Salarios descendente</a>
+				<a class="action-link" th:href="@{/empleados/roles}">Conteo por roles</a>
+				<a class="action-link" th:href="@{/empleados/detalles-salarios}">Detalle salarial</a>
+			</div>
+		</section>
+	</main>
+</body>
+</html>

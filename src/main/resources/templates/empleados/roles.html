@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title th:text="${titulo}">Roles</title>
+	<link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+	<div th:replace="~{fragments/nav :: nav}"></div>
+
+	<main class="container">
+		<header class="page-header">
+			<h1 class="page-title" th:text="${titulo}">Roles</h1>
+		</header>
+
+		<div class="table-wrapper table-wrapper-narrow">
+			<table>
+				<thead>
+					<tr>
+						<th>Rol</th>
+						<th class="text-right">Cantidad</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="conteo : ${conteoRoles}">
+						<td th:text="${conteo.rol}">Rol</td>
+						<td class="text-right" th:text="${conteo.cantidad}">0</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th>Total</th>
+						<th class="text-right" th:text="${totalEmpleados}">0</th>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</main>
+</body>
+</html>

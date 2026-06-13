@@ -1,0 +1,14 @@
+<nav class="navbar" th:fragment="nav" xmlns:th="http://www.thymeleaf.org">
+	<div class="navbar-inner">
+		<a class="navbar-brand" th:href="@{/}">Sistema de Nómina</a>
+		<ul class="navbar-links">
+			<li><a th:href="@{/}">Inicio</a></li>
+			<li><a th:href="@{/empleados}">Empleados</a></li>
+			<li><a th:href="@{/empleados/apellidos}">Por apellido</a></li>
+			<li><a th:href="@{/empleados/salarios/asc}">Salarios ↑</a></li>
+			<li><a th:href="@{/empleados/salarios/desc}">Salarios ↓</a></li>
+			<li><a th:href="@{/empleados/roles}">Roles</a></li>
+			<li><a th:href="@{/empleados/detalles-salarios}">Detalle salarial</a></li>
+		</ul>
+	</div>
+</nav>
