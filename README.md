@@ -206,16 +206,18 @@ sistema-nomina/
 
 ## 11. Despliegue en Render
 
-El proyecto está preparado para desplegarse en [Render](https://render.com) como **Web Service**.
+El proyecto está preparado para desplegarse en [Render](https://render.com) como **Web Service** mediante **Docker**.
 
 | Elemento | Detalle |
 |---|---|
 | Archivo de configuración | `render.yaml` en la raíz del proyecto |
+| Imagen Docker | `Dockerfile` en la raíz del proyecto |
+| Runtime en Render | `docker` (Render construye la imagen automáticamente) |
 | Puerto dinámico | `server.port=${PORT:8080}` en `application.properties` |
-| Java en Render | `JAVA_VERSION=21` |
-| Build Command | `chmod +x mvnw && ./mvnw clean package -DskipTests` |
-| Start Command | `java -jar target/sistema-nomina-0.0.1-SNAPSHOT.jar` |
+| Health check | `/` |
 | URL pública | Render genera una URL como `https://sistema-nomina.onrender.com/` |
+
+Render no requiere `buildCommand` ni `startCommand` manual: el `Dockerfile` compila el proyecto con Maven Wrapper y ejecuta el JAR generado.
 
 Guía detallada paso a paso: ver [DEPLOY_RENDER.md](DEPLOY_RENDER.md).
 

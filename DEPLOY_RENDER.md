@@ -1,6 +1,6 @@
 # Despliegue en Render — Sistema de Nómina
 
-Guía paso a paso para publicar la aplicación web en [Render](https://render.com) como **Web Service**.
+Guía paso a paso para publicar la aplicación web en [Render](https://render.com) como **Web Service** usando **Docker**.
 
 ---
 
@@ -24,6 +24,10 @@ Antes de desplegar, confirma que el proyecto contiene:
 | Puerto dinámico | `server.port=${PORT:8080}` en `application.properties` |
 | JAR ejecutable | `target/sistema-nomina-0.0.1-SNAPSHOT.jar` |
 | Maven Wrapper | `mvnw`, `mvnw.cmd`, carpeta `.mvn/` |
+| Dockerfile | `./Dockerfile` en la raíz del proyecto |
+| Configuración Render | `render.yaml` con `runtime: docker` |
+
+Render usa **Docker** para aplicaciones Java/Spring Boot. El `Dockerfile` incluido construye la imagen con Maven Wrapper y Java 21. Render no requiere `buildCommand` ni `startCommand` manual: construye la imagen desde GitHub y ejecuta el `ENTRYPOINT` definido en el Dockerfile.
 
 ### Comandos de verificación local (Windows)
 
@@ -35,6 +39,13 @@ Antes de desplegar, confirma que el proyecto contiene:
 
 Abrir: **http://localhost:8080/**
 
+### Comandos opcionales con Docker (si tienes Docker Desktop)
+
+```powershell
+docker build -t sistema-nomina .
+docker run --rm -p 8080:8080 -e PORT=8080 sistema-nomina
+```
+
 ---
 
 ## 2. Subir el proyecto a GitHub
@@ -44,7 +55,7 @@ Abrir: **http://localhost:8080/**
 ```powershell
 git init
 git add .
-git commit -m "Preparar proyecto para despliegue en Render"
+git commit -m "Preparar proyecto para despliegue en Render con Docker"
 ```
 
 2. Crea un repositorio en GitHub (por ejemplo: `sistema-nomina`).
@@ -65,7 +76,8 @@ git push -u origin main
 1. En Render, ve a **Dashboard** → **New** → **Blueprint**.
 2. Conecta tu repositorio de GitHub.
 3. Render detectará el archivo `render.yaml` en la raíz.
-4. Revisa la configuración y confirma el despliegue.
+4. Verifica que el servicio use **Docker** (`runtime: docker`).
+5. Revisa la configuración y confirma el despliegue.
 
 ### Opción B: Configuración manual desde el dashboard
 
@@ -79,30 +91,29 @@ git push -u origin main
 | **Name** | `sistema-nomina` |
 | **Region** | La más cercana a tu ubicación |
 | **Branch** | `main` |
-| **Runtime** | `Native` |
+| **Runtime** | `Docker` |
 | **Plan** | `Free` |
-| **Build Command** | `chmod +x mvnw && ./mvnw clean package -DskipTests` |
-| **Start Command** | `java -jar target/sistema-nomina-0.0.1-SNAPSHOT.jar` |
+| **Dockerfile Path** | `./Dockerfile` |
+| **Docker Context** | `.` |
+| **Health Check Path** | `/` |
 
-5. En **Environment Variables**, agrega:
-
-| Key | Value |
-|---|---|
-| `JAVA_VERSION` | `21` |
+> No configures `buildCommand` ni `startCommand`. Render construye la imagen automáticamente desde el `Dockerfile` y ejecuta el JAR con el `ENTRYPOINT` definido ahí.
 
 > Render asigna automáticamente la variable `PORT`. La aplicación la usa mediante `server.port=${PORT:8080}`.
 
-6. Haz clic en **Create Web Service**.
+5. Haz clic en **Create Web Service**.
 
 ---
 
 ## 4. Proceso de build en Render
 
-Durante el despliegue, Render ejecutará:
+Durante el despliegue, Render:
 
-1. `chmod +x mvnw` — Habilita el Maven Wrapper en Linux.
-2. `./mvnw clean package -DskipTests` — Compila el proyecto, genera el JAR y compila SASS a CSS.
-3. `java -jar target/sistema-nomina-0.0.1-SNAPSHOT.jar` — Inicia la aplicación web.
+1. Clona el repositorio desde GitHub.
+2. Construye la imagen Docker usando `./Dockerfile`.
+3. En la etapa de build, ejecuta `./mvnw clean package -DskipTests` (compila el proyecto, genera el JAR y compila SASS a CSS).
+4. Copia el JAR a una imagen final liviana con Java 21 JRE.
+5. Inicia la aplicación con `java -jar app.jar`.
 
 El primer despliegue puede tardar varios minutos porque Maven descarga dependencias y Node.js (para compilar SASS).
 
@@ -116,9 +127,11 @@ Cuando Render muestre **Live**, abre la URL pública generada, por ejemplo:
 https://sistema-nomina.onrender.com/
 ```
 
+La ruta de health check configurada es **`/`**.
+
 ### Rutas web disponibles
 
-| Ruta | Descripción |
+| Rota | Descripción |
 |---|---|
 | `/` | Dashboard con resumen y accesos rápidos |
 | `/empleados` | Todos los empleados |
@@ -132,15 +145,17 @@ https://sistema-nomina.onrender.com/
 
 ## 6. Solución de problemas comunes
 
-### El build falla por Java
+### El build de Docker falla
 
-- Verifica que `JAVA_VERSION=21` esté configurada en Render.
-- Confirma que `pom.xml` usa `<java.version>21</java.version>`.
+- Revisa los logs de build en el dashboard de Render.
+- Verifica que `mvnw`, `.mvn/`, `pom.xml` y `src/` estén en el repositorio.
+- Confirma que `.dockerignore` no excluye archivos necesarios para compilar.
 
 ### La aplicación no responde
 
 - Revisa los logs en el dashboard de Render.
 - Confirma que `application.properties` contiene `server.port=${PORT:8080}`.
+- Verifica que el health check apunte a `/`.
 
 ### Los estilos no cargan
 
@@ -158,7 +173,7 @@ https://sistema-nomina.onrender.com/
 
 - **Solo se despliega la interfaz web.** La consola (`MainConsola`) no se ejecuta en Render.
 - **No hay base de datos.** Los datos viven en memoria y se reinician en cada despliegue.
-- **No se requiere Docker** para este despliegue.
+- **El despliegue usa Docker.** Render construye la imagen desde el `Dockerfile` incluido en el repositorio.
 - Cada nuevo `git push` a `main` puede disparar un redespliegue automático si está habilitado.
 
 ---
@@ -170,6 +185,6 @@ https://sistema-nomina.onrender.com/
 .\mvnw.cmd clean package
 git status
 git add .
-git commit -m "Preparar despliegue en Render"
+git commit -m "Configurar despliegue en Render con Docker"
 git push origin main
 ```
