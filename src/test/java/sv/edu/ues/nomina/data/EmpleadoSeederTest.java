@@ -11,6 +11,9 @@ import sv.edu.ues.nomina.domain.RolEmpleado;
 import sv.edu.ues.nomina.domain.Supervisor;
 import sv.edu.ues.nomina.domain.Tecnico;
 
+/**
+ * Verifica que la nómina inicial se cargue con la cantidad y roles esperados.
+ */
 class EmpleadoSeederTest {
 
 	private final EmpleadoSeeder seeder = new EmpleadoSeeder();

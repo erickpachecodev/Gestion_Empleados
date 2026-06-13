@@ -1,5 +1,8 @@
 package sv.edu.ues.nomina.domain;
 
+/**
+ * Sexo del empleado.
+ */
 public enum Sexo {
 
 	MASCULINO("Masculino"),

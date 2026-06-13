@@ -5,6 +5,9 @@ import java.util.Objects;
 import sv.edu.ues.nomina.console.ConsolePrinter;
 import sv.edu.ues.nomina.console.MenuAction;
 
+/**
+ * Acción de menú que finaliza el ciclo de la consola.
+ */
 public class SalirAction implements MenuAction {
 
 	private final ConsolePrinter printer;

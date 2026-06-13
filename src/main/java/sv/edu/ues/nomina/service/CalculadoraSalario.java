@@ -11,6 +11,10 @@ import sv.edu.ues.nomina.domain.DetalleSalario;
 import sv.edu.ues.nomina.domain.Empleado;
 import sv.edu.ues.nomina.service.descuento.DescuentoStrategy;
 
+/**
+ * Calcula el detalle salarial de un empleado aplicando las estrategias
+ * de descuento configuradas.
+ */
 public class CalculadoraSalario {
 
 	private static final int ESCALA_MONETARIA = 2;
@@ -24,6 +28,9 @@ public class CalculadoraSalario {
 		this.descuentos = List.copyOf(descuentos);
 	}
 
+	/**
+	 * Calcula el detalle salarial completo de un empleado.
+	 */
 	public DetalleSalario calcularDetalleSalario(Empleado empleado) {
 		Objects.requireNonNull(empleado, "empleado no puede ser null");
 

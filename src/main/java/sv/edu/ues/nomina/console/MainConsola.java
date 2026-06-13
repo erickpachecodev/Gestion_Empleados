@@ -12,6 +12,10 @@ import sv.edu.ues.nomina.console.action.SalirAction;
 import sv.edu.ues.nomina.factory.NominaFactory;
 import sv.edu.ues.nomina.service.NominaService;
 
+/**
+ * Punto de entrada de la interfaz de consola; arma las acciones del menú
+ * y lanza el ciclo de ejecución.
+ */
 public class MainConsola {
 
 	public static void main(String[] args) {

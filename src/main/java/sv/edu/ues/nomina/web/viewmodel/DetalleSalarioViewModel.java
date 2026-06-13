@@ -1,5 +1,8 @@
 package sv.edu.ues.nomina.web.viewmodel;
 
+/**
+ * Detalle salarial de un empleado, formateado para mostrarse en Thymeleaf.
+ */
 public class DetalleSalarioViewModel {
 
 	private final String nombreCompleto;

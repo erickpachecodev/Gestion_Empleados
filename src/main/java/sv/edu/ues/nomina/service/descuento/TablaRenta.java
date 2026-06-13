@@ -5,6 +5,10 @@ import java.math.RoundingMode;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Implementa los tramos de renta definidos en el enunciado y calcula
+ * el impuesto correspondiente a un sueldo base.
+ */
 public class TablaRenta {
 
 	private static final int ESCALA_MONETARIA = 2;
@@ -38,6 +42,9 @@ public class TablaRenta {
 						new BigDecimal("288.57")));
 	}
 
+	/**
+	 * Calcula la renta de un sueldo base ubicando el tramo que le corresponde.
+	 */
 	public BigDecimal calcularRenta(BigDecimal sueldoBase) {
 		Objects.requireNonNull(sueldoBase, "sueldoBase no puede ser null");
 		if (sueldoBase.compareTo(BigDecimal.ZERO) < 0) {

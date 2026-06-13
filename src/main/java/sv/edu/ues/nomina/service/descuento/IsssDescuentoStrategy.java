@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
+/**
+ * Estrategia de descuento del ISSS, calculado como un porcentaje fijo del sueldo base.
+ */
 public class IsssDescuentoStrategy implements DescuentoStrategy {
 
 	private static final BigDecimal PORCENTAJE = new BigDecimal("0.075");

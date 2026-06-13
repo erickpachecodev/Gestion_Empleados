@@ -6,6 +6,9 @@ import sv.edu.ues.nomina.console.ConsolePrinter;
 import sv.edu.ues.nomina.console.MenuAction;
 import sv.edu.ues.nomina.service.NominaService;
 
+/**
+ * Acción de menú que muestra los empleados ordenados por primer apellido.
+ */
 public class OrdenarPorApellidoAction implements MenuAction {
 
 	private final NominaService nominaService;

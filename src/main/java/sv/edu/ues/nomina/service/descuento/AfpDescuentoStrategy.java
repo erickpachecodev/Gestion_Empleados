@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
+/**
+ * Estrategia de descuento de la AFP, calculado como un porcentaje fijo del sueldo base.
+ */
 public class AfpDescuentoStrategy implements DescuentoStrategy {
 
 	private static final BigDecimal PORCENTAJE = new BigDecimal("0.0775");

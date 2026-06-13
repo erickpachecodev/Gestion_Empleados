@@ -6,6 +6,9 @@ import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Verifica el cálculo de la renta en los distintos tramos de la tabla.
+ */
 class TablaRentaTest {
 
 	private final TablaRenta tablaRenta = new TablaRenta();

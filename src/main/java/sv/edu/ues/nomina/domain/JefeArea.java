@@ -3,6 +3,9 @@ package sv.edu.ues.nomina.domain;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+/**
+ * Empleado con rol de jefe de área y sueldo base fijo.
+ */
 public class JefeArea extends Empleado {
 
 	private static final BigDecimal SUELDO_BASE = new BigDecimal("1500.00");

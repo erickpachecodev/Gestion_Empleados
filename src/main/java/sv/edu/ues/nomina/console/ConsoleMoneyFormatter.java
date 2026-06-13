@@ -5,6 +5,9 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
+/**
+ * Formatea montos monetarios para mostrarlos en la consola.
+ */
 public class ConsoleMoneyFormatter {
 
 	private static final DecimalFormat FORMATO;

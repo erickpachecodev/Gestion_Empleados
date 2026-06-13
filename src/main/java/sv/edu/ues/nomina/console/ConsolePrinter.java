@@ -7,6 +7,9 @@ import sv.edu.ues.nomina.domain.DetalleSalario;
 import sv.edu.ues.nomina.domain.Empleado;
 import sv.edu.ues.nomina.domain.RolEmpleado;
 
+/**
+ * Centraliza la salida por consola: menús, tablas de empleados y mensajes.
+ */
 public class ConsolePrinter {
 
 	public void imprimirTitulo(String titulo) {

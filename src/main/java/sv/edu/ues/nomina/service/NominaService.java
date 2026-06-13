@@ -13,6 +13,10 @@ import sv.edu.ues.nomina.domain.Empleado;
 import sv.edu.ues.nomina.domain.RolEmpleado;
 import sv.edu.ues.nomina.repository.EmpleadoRepository;
 
+/**
+ * Centraliza las operaciones principales de nómina: consulta, ordenamiento,
+ * conteo por rol y cálculo de detalles salariales.
+ */
 public class NominaService {
 
 	private final EmpleadoRepository empleadoRepository;
@@ -53,6 +57,7 @@ public class NominaService {
 
 	public Map<RolEmpleado, Long> contarEmpleadosPorRol() {
 		Map<RolEmpleado, Long> conteo = new EnumMap<>(RolEmpleado.class);
+		// Inicializa todos los roles en cero para incluir aquellos sin empleados.
 		for (RolEmpleado rol : RolEmpleado.values()) {
 			conteo.put(rol, 0L);
 		}

@@ -6,6 +6,9 @@ import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Verifica el cálculo del descuento de la AFP sobre el sueldo base.
+ */
 class AfpDescuentoStrategyTest {
 
 	private final AfpDescuentoStrategy strategy = new AfpDescuentoStrategy();

@@ -14,6 +14,10 @@ import sv.edu.ues.nomina.service.NominaService;
 import sv.edu.ues.nomina.web.mapper.WebNominaMapper;
 import sv.edu.ues.nomina.web.viewmodel.DetalleSalarioViewModel;
 
+/**
+ * Controlador de las vistas de empleados. Solo coordina la presentación web
+ * y delega la lógica en {@link NominaService}.
+ */
 @Controller
 @RequestMapping("/empleados")
 public class EmpleadoWebController {

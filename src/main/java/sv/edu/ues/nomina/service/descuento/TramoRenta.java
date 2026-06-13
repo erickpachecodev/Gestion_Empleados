@@ -4,6 +4,10 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
+/**
+ * Representa una fila de la tabla de renta: rango de sueldo, porcentaje,
+ * exceso sobre el que se aplica y cuota fija.
+ */
 public class TramoRenta {
 
 	private final BigDecimal desde;
@@ -41,6 +45,9 @@ public class TramoRenta {
 		return cuotaFija;
 	}
 
+	/**
+	 * Indica si el sueldo base cae dentro de este tramo.
+	 */
 	public boolean aplica(BigDecimal sueldoBase) {
 		Objects.requireNonNull(sueldoBase, "sueldoBase no puede ser null");
 		boolean cumpleMinimo = sueldoBase.compareTo(desde) >= 0;
@@ -48,6 +55,9 @@ public class TramoRenta {
 		return cumpleMinimo && cumpleMaximo;
 	}
 
+	/**
+	 * Calcula la renta del tramo: exceso sobre el límite por el porcentaje más la cuota fija.
+	 */
 	public BigDecimal calcular(BigDecimal sueldoBase) {
 		Objects.requireNonNull(sueldoBase, "sueldoBase no puede ser null");
 		if (porcentaje.compareTo(BigDecimal.ZERO) == 0) {

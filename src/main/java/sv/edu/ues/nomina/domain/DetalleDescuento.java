@@ -3,6 +3,9 @@ package sv.edu.ues.nomina.domain;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+/**
+ * Representa un descuento individual aplicado al sueldo (nombre y monto).
+ */
 public class DetalleDescuento {
 
 	private final String nombre;

@@ -4,6 +4,10 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * Clase abstracta que representa a un empleado con los datos comunes a todos los roles.
+ * Cada subclase define su sueldo base fijo y su rol.
+ */
 public abstract class Empleado {
 
 	private final String nombre;

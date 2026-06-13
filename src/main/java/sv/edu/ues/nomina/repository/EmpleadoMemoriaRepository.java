@@ -7,6 +7,9 @@ import java.util.Objects;
 
 import sv.edu.ues.nomina.domain.Empleado;
 
+/**
+ * Implementación de {@link EmpleadoRepository} que almacena los empleados en memoria.
+ */
 public class EmpleadoMemoriaRepository implements EmpleadoRepository {
 
 	private final List<Empleado> empleados;

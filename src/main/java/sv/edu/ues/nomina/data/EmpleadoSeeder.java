@@ -12,8 +12,14 @@ import sv.edu.ues.nomina.domain.Sexo;
 import sv.edu.ues.nomina.domain.Supervisor;
 import sv.edu.ues.nomina.domain.Tecnico;
 
+/**
+ * Carga la nómina inicial de empleados requerida por el sistema.
+ */
 public class EmpleadoSeeder {
 
+	/**
+	 * Crea la lista de empleados iniciales con sus datos predefinidos.
+	 */
 	public List<Empleado> crearEmpleadosIniciales() {
 		Empleado[] empleados = {
 				new Gerente("Carlos", "Aguilar", "Mendoza", "Colonia Escalón, San Salvador",

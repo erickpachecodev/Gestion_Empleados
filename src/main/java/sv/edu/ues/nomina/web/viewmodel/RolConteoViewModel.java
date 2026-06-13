@@ -1,5 +1,8 @@
 package sv.edu.ues.nomina.web.viewmodel;
 
+/**
+ * Cantidad de empleados por rol, formateada para mostrarse en Thymeleaf.
+ */
 public class RolConteoViewModel {
 
 	private final String rol;

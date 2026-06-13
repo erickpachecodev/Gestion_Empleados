@@ -12,6 +12,10 @@ import sv.edu.ues.nomina.service.descuento.DescuentoStrategy;
 import sv.edu.ues.nomina.service.descuento.IsssDescuentoStrategy;
 import sv.edu.ues.nomina.service.descuento.RentaDescuentoStrategy;
 
+/**
+ * Ensambla las dependencias del sistema de nómina sin acoplarse a la capa
+ * de presentación (web o consola).
+ */
 public class NominaFactory {
 
 	private NominaFactory() {

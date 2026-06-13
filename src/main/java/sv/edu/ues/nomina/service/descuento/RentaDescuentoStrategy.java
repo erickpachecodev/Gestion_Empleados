@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
+/**
+ * Estrategia de descuento de renta; delega el cálculo en la tabla de tramos.
+ */
 public class RentaDescuentoStrategy implements DescuentoStrategy {
 
 	private static final int ESCALA_MONETARIA = 2;

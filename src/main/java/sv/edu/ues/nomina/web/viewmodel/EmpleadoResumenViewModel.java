@@ -1,5 +1,8 @@
 package sv.edu.ues.nomina.web.viewmodel;
 
+/**
+ * Datos resumidos de un empleado, formateados para mostrarse en Thymeleaf.
+ */
 public class EmpleadoResumenViewModel {
 
 	private final String nombreCompleto;

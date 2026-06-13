@@ -20,6 +20,10 @@ import sv.edu.ues.nomina.service.descuento.AfpDescuentoStrategy;
 import sv.edu.ues.nomina.service.descuento.IsssDescuentoStrategy;
 import sv.edu.ues.nomina.service.descuento.RentaDescuentoStrategy;
 
+/**
+ * Verifica el detalle salarial calculado para cada rol y el uso de las
+ * estrategias de descuento configuradas.
+ */
 class CalculadoraSalarioTest {
 
 	private CalculadoraSalario calculadoraSalario;

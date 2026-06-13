@@ -16,6 +16,9 @@ import sv.edu.ues.nomina.domain.Empleado;
 import sv.edu.ues.nomina.domain.RolEmpleado;
 import sv.edu.ues.nomina.factory.NominaFactory;
 
+/**
+ * Verifica las operaciones de nómina: consulta, conteo por rol y ordenamientos.
+ */
 class NominaServiceTest {
 
 	private NominaService nominaService;

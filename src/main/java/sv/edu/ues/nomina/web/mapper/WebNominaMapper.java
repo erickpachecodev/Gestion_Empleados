@@ -17,6 +17,10 @@ import sv.edu.ues.nomina.web.viewmodel.DetalleSalarioViewModel;
 import sv.edu.ues.nomina.web.viewmodel.EmpleadoResumenViewModel;
 import sv.edu.ues.nomina.web.viewmodel.RolConteoViewModel;
 
+/**
+ * Transforma objetos de dominio en view models con datos formateados
+ * listos para las vistas Thymeleaf.
+ */
 @Component
 public class WebNominaMapper {
 

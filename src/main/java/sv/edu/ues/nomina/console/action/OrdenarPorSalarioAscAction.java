@@ -10,6 +10,9 @@ import sv.edu.ues.nomina.domain.DetalleSalario;
 import sv.edu.ues.nomina.domain.Empleado;
 import sv.edu.ues.nomina.service.NominaService;
 
+/**
+ * Acción de menú que muestra los empleados ordenados por salario neto ascendente.
+ */
 public class OrdenarPorSalarioAscAction implements MenuAction {
 
 	private final NominaService nominaService;

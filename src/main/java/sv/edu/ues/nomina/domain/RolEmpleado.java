@@ -1,5 +1,8 @@
 package sv.edu.ues.nomina.domain;
 
+/**
+ * Roles posibles de un empleado dentro de la nómina.
+ */
 public enum RolEmpleado {
 
 	GERENTE("Gerente"),

@@ -6,6 +6,9 @@ import sv.edu.ues.nomina.console.ConsolePrinter;
 import sv.edu.ues.nomina.console.MenuAction;
 import sv.edu.ues.nomina.service.NominaService;
 
+/**
+ * Acción de menú que muestra la cantidad de empleados por rol.
+ */
 public class ContarPorRolAction implements MenuAction {
 
 	private final NominaService nominaService;

@@ -5,6 +5,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Representa el resultado final del cálculo salarial de un empleado:
+ * sueldo base, descuentos aplicados, total descontado y salario neto.
+ */
 public class DetalleSalario {
 
 	private final Empleado empleado;
@@ -55,6 +59,7 @@ public class DetalleSalario {
 		return buscarDescuento("RENTA");
 	}
 
+	// Busca el monto de un descuento por nombre; retorna cero si no existe.
 	private BigDecimal buscarDescuento(String nombre) {
 		return descuentos.stream()
 				.filter(descuento -> descuento.getNombre().equals(nombre))

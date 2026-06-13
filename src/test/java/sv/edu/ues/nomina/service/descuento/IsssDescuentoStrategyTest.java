@@ -6,6 +6,9 @@ import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Verifica el cálculo del descuento del ISSS sobre el sueldo base.
+ */
 class IsssDescuentoStrategyTest {
 
 	private final IsssDescuentoStrategy strategy = new IsssDescuentoStrategy();

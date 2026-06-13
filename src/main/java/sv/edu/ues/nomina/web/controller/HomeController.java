@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import sv.edu.ues.nomina.service.NominaService;
 import sv.edu.ues.nomina.web.mapper.WebNominaMapper;
 
+/**
+ * Controlador de la página de inicio. Solo coordina la presentación web
+ * y delega la lógica en {@link NominaService}.
+ */
 @Controller
 public class HomeController {
 

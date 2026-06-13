@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * Coordina el ciclo de lectura de opciones y ejecución de las acciones del menú.
+ */
 public class MenuConsola {
 
 	private final List<MenuAction> acciones;
@@ -16,6 +19,9 @@ public class MenuConsola {
 		this.printer = Objects.requireNonNull(printer, "printer no puede ser null");
 	}
 
+	/**
+	 * Muestra el menú y ejecuta acciones hasta que el usuario elige salir.
+	 */
 	public void ejecutar() {
 		boolean continuar = true;
 		while (continuar) {

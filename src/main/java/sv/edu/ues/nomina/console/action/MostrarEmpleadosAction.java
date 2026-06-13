@@ -6,6 +6,9 @@ import sv.edu.ues.nomina.console.ConsolePrinter;
 import sv.edu.ues.nomina.console.MenuAction;
 import sv.edu.ues.nomina.service.NominaService;
 
+/**
+ * Acción de menú que muestra todos los empleados registrados.
+ */
 public class MostrarEmpleadosAction implements MenuAction {
 
 	private final NominaService nominaService;
