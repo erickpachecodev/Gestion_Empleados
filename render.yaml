@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: sistema-nomina
+    runtime: native
+    plan: free
+    buildCommand: chmod +x mvnw && ./mvnw clean package -DskipTests
+    startCommand: java -jar target/sistema-nomina-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: JAVA_VERSION
+        value: "21"

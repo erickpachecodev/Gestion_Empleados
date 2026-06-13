@@ -204,7 +204,26 @@ sistema-nomina/
 
 ---
 
-## 11. Información académica
+## 11. Despliegue en Render
+
+El proyecto está preparado para desplegarse en [Render](https://render.com) como **Web Service**.
+
+| Elemento | Detalle |
+|---|---|
+| Archivo de configuración | `render.yaml` en la raíz del proyecto |
+| Puerto dinámico | `server.port=${PORT:8080}` en `application.properties` |
+| Java en Render | `JAVA_VERSION=21` |
+| Build Command | `chmod +x mvnw && ./mvnw clean package -DskipTests` |
+| Start Command | `java -jar target/sistema-nomina-0.0.1-SNAPSHOT.jar` |
+| URL pública | Render genera una URL como `https://sistema-nomina.onrender.com/` |
+
+Guía detallada paso a paso: ver [DEPLOY_RENDER.md](DEPLOY_RENDER.md).
+
+> Solo se despliega la **interfaz web**. La consola sigue ejecutándose en local con `.\mvnw.cmd exec:java`.
+
+---
+
+## 12. Información académica
 
 - **Proyecto:** Sistema de Nómina de Empleados
 - **Carrera:** Ingeniería en Desarrollo de Software
